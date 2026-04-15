@@ -4,17 +4,13 @@ from sodapy import Socrata
 # --- YOUR CREDENTIALS ---
 DOMAIN = "data.cityofnewyork.us"
 DATASET_ID = "4b4i-vvec"
-APP_TOKEN = "your_app_token"
-KEY_ID = "your_key_id"         # This is the "Key ID"
-KEY_SECRET = "your_key_secret" # This is the "Key Secret"
+APP_TOKEN = "sFDA7K7xwMGGUMhiN5CFrv9md"
 
 # Initialize the client
 # username = Key ID, password = Key Secret
 client = Socrata(
     DOMAIN, 
-    APP_TOKEN, 
-    username=KEY_ID, 
-    password=KEY_SECRET,
+    APP_TOKEN,
     timeout = 600
 )
 
@@ -22,7 +18,7 @@ count_res = client.get(DATASET_ID, select = "COUNT(*)")
 total_rows = int(count_res[0]['COUNT'])
 
 CHUNK_SIZE = 50000 
-SAMPLE_RATE = 0.05
+SAMPLE_RATE = 0.01
 
 samples = []
 
